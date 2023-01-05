@@ -3,10 +3,12 @@ import '../src/LoanEMIDetails/LoanEMIDetails.js';
 
 import Sinon from 'sinon';
 
-const el = await fixture(html`<loanemi-details></loanemi-details>`);
-const form = el.shadowRoot.querySelectorAll('lion-button');
 
-describe('Loan EMI details', () => {
+
+describe('Loan EMI details', async () => {
+  const el = await fixture(html`<loanemi-details></loanemi-details>`);
+const form = el.shadowRoot.querySelectorAll('lion-button');
+  
   it('check customer function', () => {
     const abc = Sinon.spy(el, "_toCustomer");
     form[0].click();

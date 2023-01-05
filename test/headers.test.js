@@ -3,9 +3,10 @@ import { stub } from 'sinon';
 import '../src/header/Header.js';
 import Sinon  from 'sinon';
 
-const el = await fixture(html`<loan-header></loan-headers>`);
+
+describe('loan-header', async () => {
+  const el = await fixture(html`<loan-header></loan-headers>`);
 const form = el.shadowRoot.querySelectorAll('button');
-describe('loan-header', () => {
   
   it('check for spy', () => {
     const abc = Sinon.spy(el, "localeChanged");

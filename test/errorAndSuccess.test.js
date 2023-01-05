@@ -4,14 +4,15 @@ import '../src/SuccessAndError/Success.js';
 import '../src/SuccessAndError/Error.js';
 import Sinon from 'sinon';
 
-const errorEl = await fixture(html`<loan-error></loan-error>`);
-const form = errorEl.shadowRoot.querySelectorAll('lion-button');
 
-const sucessEl = await fixture(html`<loan-success></loan-success>`);
-const formSuces = sucessEl.shadowRoot.querySelectorAll('lion-button');
 
-describe('Success screen ', () => {
+
+describe('Success screen ', async () => {
+  const errorEl = await fixture(html`<loan-error></loan-error>`);
+  const form = errorEl.shadowRoot.querySelectorAll('lion-button');
+
   it('Success, check _toHome function', () => {
+
     const abc = Sinon.spy(sucessEl, "_toHome");
     formSuces[0].click();
     expect(abc.calledOnce).to.be.true;
@@ -23,7 +24,9 @@ describe('Success screen ', () => {
 
 });
 
-describe('error screen', () => {
+describe('error screen', async () => {
+  const sucessEl = await fixture(html`<loan-success></loan-success>`);
+  const formSuces = sucessEl.shadowRoot.querySelectorAll('lion-button');
   it('Error, check _toHome function', () => {
     const abc = Sinon.spy(errorEl, "_toHome");
     form[0].click();
